@@ -59,7 +59,7 @@ No setup required - upload your Rust files and get instant security analysis!
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/0xAkinator/RustProof.git
 cd rustproof
 ```
 
