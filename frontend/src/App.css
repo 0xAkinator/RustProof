@@ -1,0 +1,206 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.App {
+  text-align: left;
+}
+
+/* Custom scrollbar for code snippets */
+pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #6B7280;
+  border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Smooth animations */
+* {
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Custom button hover effects */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded transition-colors;
+}
+
+/* Code syntax highlighting enhancements */
+code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  line-height: 1.5;
+}
+
+/* Loading animation for scan progress */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+}
+
+/* Vulnerability severity color coding */
+.severity-critical {
+  @apply bg-red-900 text-red-200 border-red-500;
+}
+
+.severity-high {
+  @apply bg-orange-900 text-orange-200 border-orange-500;
+}
+
+.severity-medium {
+  @apply bg-yellow-900 text-yellow-200 border-yellow-500;
+}
+
+.severity-low {
+  @apply bg-blue-900 text-blue-200 border-blue-500;
+}
+
+/* Enhanced card hover effects */
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-lg hover:border-gray-600;
+}
+
+/* File upload drag and drop styling */
+.drag-active {
+  @apply border-blue-400 bg-blue-500/10;
+  animation: pulse 2s infinite;
+}
+
+/* Security score circle animation */
+.score-circle {
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+/* Responsive grid improvements */
+@media (max-width: 768px) {
+  .vulnerability-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Print styles for reports */
+@media print {
+  .no-print {
+    display: none;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+/* Dark mode optimizations */
+body {
+  background-color: #111827;
+  color: #F9FAFB;
+}
+
+/* Custom focus states for accessibility */
+button:focus,
+input:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-900;
+}
+
+/* Toast notification styles (if needed later) */
+.toast {
+  @apply fixed top-4 right-4 bg-gray-800 border border-gray-700 rounded-lg p-4 shadow-lg z-50;
+}
+
+/* Loading skeleton styles */
+.skeleton {
+  @apply bg-gray-700 animate-pulse rounded;
+}
+
+/* Custom checkbox and radio styling */
+input[type="checkbox"],
+input[type="radio"] {
+  @apply bg-gray-700 border-gray-600 text-blue-600 focus:ring-blue-500 focus:ring-offset-gray-900;
+}
+
+/* Enhanced table styling */
+table {
+  @apply w-full border-collapse;
+}
+
+th, td {
+  @apply border-b border-gray-700 px-4 py-2 text-left;
+}
+
+th {
+  @apply bg-gray-800 font-semibold text-gray-300;
+}
+
+/* Modal backdrop styling */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+}
+
+.modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+}
+
+/* Progress bar animations */
+.progress-bar {
+  @apply bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-blue-500 transition-all duration-500 ease-out;
+}
+
+/* Tooltip styling */
+.tooltip {
+  @apply absolute bg-gray-800 text-white text-sm rounded py-1 px-2 border border-gray-600 z-10;
+}
+
+/* Badge components */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  @apply bg-green-900 text-green-200;
+}
+
+.badge-warning {
+  @apply bg-yellow-900 text-yellow-200;
+}
+
+.badge-error {
+  @apply bg-red-900 text-red-200;
+}
+
+.badge-info {
+  @apply bg-blue-900 text-blue-200;
+}

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: rustproof-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: rustproof
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - rustproof-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: rustproof-backend
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017
+      - DB_NAME=rustproof
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mongodb
+    networks:
+      - rustproof-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: rustproof-frontend
+    restart: unless-stopped
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - rustproof-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  rustproof-network:
+    driver: bridge
