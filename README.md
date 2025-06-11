@@ -32,7 +32,14 @@ RustProof is a comprehensive, professional-grade security analysis platform spec
 - **Platform Analytics** with aggregate security metrics
 - **Vulnerability Prioritization** based on impact and exploitability
 - **Real-world Context** with actual exploit examples
+## 🚀 Quick Start
 
+### Try the Live Platform
+**🌐 Live Demo**: [https://rustproof.dev](https://rustproof.dev)
+
+No setup required - upload your Rust files and get instant security analysis!
+
+### Or Run Locally with Docker
 ## 🛠️ Technology Stack
 
 - **Frontend**: React 19, Tailwind CSS, Axios
